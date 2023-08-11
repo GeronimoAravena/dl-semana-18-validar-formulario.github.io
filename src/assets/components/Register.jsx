@@ -2,14 +2,17 @@
 import Alert from './Alert';
 import Form from './Form'
 import Icon from './Icon'
+import Header from './Header';
 import './Register.css'
 
 const Register = ({validate, setValidate}) => {
 
+    // Dependiendo del formulario actualiza el estado de validación
     const getStatus = (status) => {
         setValidate(status);
     }
 
+    // Genera array de iconos para Header
     const social = [
         <Icon icon="instagram" key="instagram"></Icon>,
         <Icon icon="facebook" key="facebook"></Icon>,
@@ -21,16 +24,15 @@ const Register = ({validate, setValidate}) => {
         <>
             <div className="root-container">
                 <div className="register-container">
-                    <h2>Crea una cuenta</h2>
-                    <div className="social-container">
-                        {social.map(element => { return element })}
-                    </div>
-                    <p>O usa tu e-mail para registrarte</p>
+                    {/* Importación de header / se envia title, subtitle y array de social (Icon) */}
+                    <Header title="Crea una cuenta" subtitle="O usa tu e-mail para registrarte" social={social}/>
                 </div>
                 <div className="form-container">
+                    {/* Importación de Form (retorna con onSubmit estado de validación) */}
                     <Form onSubmit={getStatus}/>
                 </div>
                 <div className='alert-container'>
+                    {/* Según validación se muestra la alerta */}
                     {validate == null ? <div style={{padding:"1.6rem 0"}}></div> : <Alert state={validate} message={validate ? "Registro Exitoso!" : "Debe validar los campos"}/>}
                 </div>
             </div>

@@ -75,27 +75,33 @@ const Form = ({onSubmit}) => {
         }
     };
 
+    // Evento al hacer click (Submit)
     const handleSubmit = (e) => {
         e.preventDefault();
 
         let listError = [];
 
+        // Actualiza validación de formulario
         setValidate(validate.map((element) => {
+            // Validación de nombre
             if (element.key == "name") {
                 element.validate = user.name.length >= 3 ? true : false;
                 !element.validate ? listError.push("<p>- El nombre requiere al menos 3 caracteres</p>") : null;
             }
 
+            // Validación de email
             if (element.key == "email") {
                 element.validate = user.email.length <=0 ? false : (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(user.email))
                 !element.validate ? listError.push("<p>- Debe ingresar un formato correcto de e-mail</p>") : null;
             }
 
+            // Validación de contraseña
             if (element.key == "password") {
                 element.validate = user.password.length < 10 ? false : true;
                 !element.validate ? listError.push("<p>- La contraseña requiere al menos 10 caracteres</p>") : null;
             }
 
+            // Validación de confirmación contraseña
             if (element.key == "passwordConfirm") {
                 element.validate = user.passwordConfirm.length < 10 ? false : user.password != user.passwordConfirm ? false : true;
                 user.passwordConfirm.length < 10 ? listError.push("<p>- La confirmación de contraseña requiere al menos 10 caracteres</p>") 
@@ -109,13 +115,15 @@ const Form = ({onSubmit}) => {
         //Obtiene el estado de validación
         let validation = validate.filter((element) => element.validate == false).length == 0 ? true : false
 
+        // Si la validación se completo correctamente ( reseteo de state)
         if (validation) {
             setUser(userDefault);
             setValidate(validate.map((element) => {
                 element.validate = null
                 return element
             }));
-
+        
+        // Alerta de error
         } else {
             Swal.fire({
                 icon: 'error',

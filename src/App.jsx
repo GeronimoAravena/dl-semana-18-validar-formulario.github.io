@@ -8,6 +8,7 @@ function App() {
 
   return (
     <>
+      {/* Importación de registro (se envia estado de validación) */}
       <Register validate={validate} setValidate={setValidate}/>
     </>
   )
