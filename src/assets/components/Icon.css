@@ -1,0 +1,19 @@
+.fa-instagram:hover {
+    color: #EF5350;
+}
+
+.fa-facebook:hover {
+    color: #3F51B5;
+}
+
+.fa-linkedin:hover {
+    color: #0D47A1;
+}
+
+.fa-github:hover {
+    color: #9C27B0;
+}
+
+.fa-brands {
+    cursor: pointer;
+}

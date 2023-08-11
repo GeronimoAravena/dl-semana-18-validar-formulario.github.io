@@ -1,0 +1,20 @@
+button {
+    border-radius: 8px;
+    border: 2px solid transparent;
+    color: #FFF;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #7E57C2;
+    cursor: pointer;
+    transition: all 0.25s;
+}
+
+/* button:focus,
+button:focus-visible, */
+button:hover {
+    border: 2px solid #7E57C2;
+    background: transparent;
+    color: #7E57C2;
+}

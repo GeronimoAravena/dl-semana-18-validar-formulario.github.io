@@ -1,0 +1,69 @@
+.box {
+    position: relative;
+    width: 250px;
+    display: flex;
+}
+
+.box input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #B0BEC5;
+    background: #FFF;
+    border-radius: 5px;
+    outline: none;
+    color: #000;
+    font-size: 1em;
+    /* transition: 0.5s ease-in-out; */
+}
+
+.box span {
+    position: absolute;
+    left: 0;
+    padding: 7px 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: #90A4AE;
+    text-transform: uppercase;
+    transition: 0.5s ease;
+}
+
+/* .box input:valid ~ span,  */
+.box input:not(:placeholder-shown) ~ span,
+.box input:focus ~ span {
+    color: #000;
+    transform: translateX(10px) translateY(-7px);
+    font-size: 0.65em;
+    padding: 0 10px;
+    background: #9575CD;
+    letter-spacing: 0.2em;
+    border-radius: 2px;
+}
+
+/* .box input:not(:placeholder-shown){
+    border: 2px solid #9575CD;
+} */
+
+.box input:focus {
+    border: 2px solid #9575CD !important;
+} 
+
+.box input:hover:placeholder-shown:not(:focus) {
+    border: 2px solid #2196F3 !important;
+}
+
+/* Validaciones */
+.noValidateInput {
+    border: 2px solid #F44336 !important;
+}
+
+.validateInput {
+    border: 2px solid #4CAF50 !important;
+}
+
+.noValidateLabel {
+    background: #F44336 !important;
+}
+
+.validateLabel {
+    background: #4CAF50 !important;
+}
